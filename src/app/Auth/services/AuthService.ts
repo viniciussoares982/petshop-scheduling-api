@@ -9,7 +9,7 @@ export default class AuthService {
     password: string,
   ): Promise<{ user: object; token: string }> {
     const user = {
-      id: '123',
+      id: '999',
       email: 'admin@admin.com',
       password: 'secret',
       fullName: 'Admin',
