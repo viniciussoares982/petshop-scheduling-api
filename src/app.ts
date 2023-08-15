@@ -1,5 +1,6 @@
 import express, { Application } from 'express'
-
+import cors from 'cors'
+import routes from '@/routes'
 export default class App {
   app: Application
   constructor() {
@@ -17,11 +18,13 @@ export default class App {
   }
 
   private middlewares() {
-    return undefined
+    this.app.use(express.json())
+    this.app.use(express.urlencoded({ extended: true }))
+    this.app.use(cors())
   }
 
   private routes() {
-    return undefined
+    this.app.use(routes)
   }
 
   private exceptionHandler() {
