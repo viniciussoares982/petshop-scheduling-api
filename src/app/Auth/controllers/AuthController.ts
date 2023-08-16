@@ -18,8 +18,10 @@ class AuthController {
     }
   }
 
-  async destroy() {
-    return undefined
+  async destroy(req: Request, res: Response): Promise<Response> {
+    new AuthService().signOut(req.user.token)
+
+    return res.status(204).send()
   }
 }
 
